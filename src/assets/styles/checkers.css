@@ -1,0 +1,25 @@
+
+.checkers{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 560px;
+    height: 560px;
+    border: 2px solid;
+    margin: 0 auto;
+}
+.checkersItem{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.checkersCol{
+    width: 70px;
+    height: 70px;
+}
+.black{
+    background-color: #000;
+}
