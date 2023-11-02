@@ -20,23 +20,40 @@ function addCols(cols){
 }
 
 function addItems(items){
-    let item = {};
-   let left = 0;
-    for(let i = 1; i <= 24; i++){
-        left += 70;
+   let left = 70;
+   let top = 0;
+    for(let i = 1; i <=24; i++){
+        let item = {};
+        if(i > 1 && i < 5){
+            left += 140;  
+        }
+       if( i===5){
+        left-=70;  
+        top = 70;
+       }
+       if(i > 5 && i <=8){
+        left-=140;
+       }
+       if(i>=9){
+        top = 140;
+        left +=70;
+        if(i > 9 && i <= 12){
+            left += 70;
+        }
+       }
         item.left = left; 
+        item.top = top; 
         item.class = 'checkersItem';
+        
         items.push(item);
     }
     console.log(items);
 }
 const Checkers = ()=>{
-    const rows = [1, 2, 3, 4, 5, 6, 7, 8];
     let cols = [];
     let checkersItems = [];
     const elem = useRef();
     const [color, setColor] = useState(false);
-  
     addCols(cols);
    addItems(checkersItems); 
    
@@ -51,7 +68,7 @@ const Checkers = ()=>{
              }
               {
                  checkersItems.map((el)=>{
-                     return <div className={el.class} style={{left:el.left+ 'px' }}></div>
+                     return <div className={el.class} style={{left:el.left+ 'px', top: el.top+ 'px' }}></div>
                      })
              }
             </div>
