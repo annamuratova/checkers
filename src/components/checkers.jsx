@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
 import '../assets/styles/checkers.css'
+import CheckersCell from './cell';
+import CheckersItem from './checkersItem';
 
 
 
@@ -53,7 +55,11 @@ const Checkers = ()=>{
     let cols = [];
     let checkersItems = [];
     const elem = useRef();
-    const [color, setColor] = useState(false);
+    const [active, setActive] = useState("0");
+    function highLight(index){
+        setActive(index);
+        console.log(active)
+    }
     addCols(cols);
    addItems(checkersItems); 
    
@@ -62,14 +68,14 @@ const Checkers = ()=>{
             <h1>Shashka</h1>
             <div className="checkers" ref={elem}>
             {
-              cols.map((item)=>{
-                     return <div className={item.class}></div>
+              cols.map((el)=>{
+                     return < CheckersCell cell={el} />
                     })  
              }
               {
-                 checkersItems.map((el)=>{
-                     return <div className={el.class} style={{left:el.left+ 'px', top: el.top+ 'px' }}></div>
-                     })
+                 checkersItems.map((item, index)=>{
+                     return <CheckersItem item={item} isActive={active===index} onToogle={()=>highLight(index)}/>
+                 })    
              }
             </div>
         </div>
