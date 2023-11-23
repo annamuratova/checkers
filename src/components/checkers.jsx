@@ -47,34 +47,37 @@ function addItems(items){
         item.top = top; 
         item.class = 'checkersItem';
         
-        items.push(item);
+        items.set(i, item);
     }
     console.log(items);
 }
 const Checkers = ()=>{
     let cols = [];
-    let checkersItems = [];
-    const elem = useRef();
+    let checkersItems = new Map();
+    const divElemnent = useRef();
+    
+
     const [active, setActive] = useState("0");
     function highLight(index){
         setActive(index);
-        console.log(active)
     }
+   
     addCols(cols);
    addItems(checkersItems); 
    
     return(
         <div>
             <h1>Shashka</h1>
-            <div className="checkers" ref={elem}>
+            <div className="checkers" ref={divElemnent}>
             {
               cols.map((el)=>{
                      return < CheckersCell cell={el} />
                     })  
              }
               {
-                 checkersItems.map((item, index)=>{
-                     return <CheckersItem item={item} isActive={active===index} onToogle={()=>highLight(index)}/>
+                 Array.from(checkersItems.keys()).map((key)=>{
+                    console.log(key);
+                     return <CheckersItem item={checkersItems.get(key)}/>
                  })    
              }
             </div>

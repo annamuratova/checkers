@@ -3,7 +3,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    width: 560px;
+     width: 560px;
     height: 560px;
     border: 2px solid;
     margin: 0 auto;
@@ -25,4 +25,10 @@
 }
 .black{
     background-color: #000;
+}
+
+@media (max-width:560px){
+    /* .checkers{
+        width: 300px;
+    } */
 }

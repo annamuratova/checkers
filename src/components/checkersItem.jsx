@@ -1,11 +1,10 @@
-import { useState } from "react"
 
 
-const CheckersItem = ({item, onToogle, isActive})=>{
+const CheckersItem = ({item})=>{
     
     
     return (
-        <div className={`${item.class} ${isActive ? 'active' : ''}`} onClick={onToogle} style={{left:item.left+ 'px', top: item.top+ 'px'}}></div>
+        <div className={checkersItem} style={{left:item.left+ 'px', top: item.top+ 'px'}}></div>
     )
 }
 
