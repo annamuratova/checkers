@@ -9,26 +9,39 @@
     margin: 0 auto;
 }
 .checkersItem{
-    position: absolute;
-    width: 70px;
-    height: 70px;
+    /* position: absolute; */
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
+    box-shadow: 2px 4px 4px blue;
     background-color: blue;
 }
 .checkersItem.active{
     background-color: red;
 } 
-
+.white{
+    background-color: #fff;
+    box-shadow: 2px 4px 4px #fff;
+}
 .checkersCol{
+    position:relative;
     width: 70px;
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .black{
     background-color: #000;
 }
 
 @media (max-width:560px){
-    /* .checkers{
-        width: 300px;
-    } */
+    .checkers{
+        width: 320px;
+        height: 320px;
+    }
+    .checkersCol{
+        width: 40px;
+        height: 40px;
+    }
 }

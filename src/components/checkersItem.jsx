@@ -1,10 +1,11 @@
+import { useState } from "react"
 
 
-const CheckersItem = ({item})=>{
-    
+const CheckersItem = ({item, active })=>{
+    const [thisItem, setThisItem] = useState(item) 
     
     return (
-        <div className={checkersItem} style={{left:item.left+ 'px', top: item.top+ 'px'}}></div>
+        <div className={thisItem.type === 1 ? 'checkersItem' : 'checkersItem white'} style={active ? {backgroundColor:"red"} : {backgroundColor:""}}></div>
     )
 }
 
